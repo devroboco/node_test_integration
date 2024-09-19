@@ -45,15 +45,15 @@ describe("API de Clubes e Jogadores", () => {
 
     expect(response.status).toBe(201);
 
-    expect(response.body).toHaveProperty("id");
-    expect(response.body).toHaveProperty("nome");
-    expect(response.body).toHaveProperty("clube_id");
-    expect(response.body).toHaveProperty("data_nasc");
-    expect(response.body).toHaveProperty("num_camisa");
-    expect(response.body).toHaveProperty("posicao");
-    expect(response.body).toHaveProperty("nacionalidade");
-    expect(response.body).toHaveProperty("inicio_contrato");
-    expect(response.body).toHaveProperty("fim_contrato");
+    expect(response.body.id).toBeTruthy();
+    expect(response.body.nome).toBe("Jogador 1");
+    expect(response.body.clube_id).toBe(1);
+    expect(response.body.data_nasc).toBe("1990-01-01T00:00:00.000Z");
+    expect(response.body.num_camisa).toBe(10);
+    expect(response.body.posicao).toBe("Atacante");
+    expect(response.body.nacionalidade).toBe("Brasileira");
+    expect(response.body.inicio_contrato).toBe("2024-01-01T00:00:00.000Z");
+    expect(response.body.fim_contrato).toBe("2025-01-01T00:00:00.000Z");
   });
 
   it("não deve cadastrar um jogador em um clube inexistente", async () => {
